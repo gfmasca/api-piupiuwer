@@ -24,7 +24,7 @@ export default class PiusRepository implements IPiusRepository {
 
   public async findAll(): Promise<Piu[]> {
     const pius = await this.ormRepository.find({
-      relations: ['likes', 'likes.user'],
+      relations: ['likes', 'likes.user', 'user'],
       order: { created_at: 'DESC' },
     });
 
