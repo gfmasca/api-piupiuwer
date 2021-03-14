@@ -27,6 +27,7 @@ export default class UsersRepository implements IUsersRepository {
     const users = await this.ormRepository.createQueryBuilder('user')
       .leftJoinAndSelect('user.likes', 'likes')
       .leftJoinAndSelect('user.pius', 'pius')
+      .leftJoinAndSelect('pius.likes', 'userPiusLikes')
       .leftJoinAndSelect('user.following', 'followed')
       .leftJoinAndSelect('user.followers', 'follower')
       .leftJoinAndSelect('user.favorites', 'favorites')
